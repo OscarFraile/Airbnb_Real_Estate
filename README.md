@@ -20,6 +20,14 @@ Python · Pandas · Scikit-learn · XGBoost · Matplotlib · Folium · Jupyter N
 └── README.md
 ```
 
+## Base de datos
+
+El archivo `airbnb2025.db` no está incluido en el repositorio por su tamaño (631 MB). Es necesario para ejecutar el proyecto completo.
+
+Si lo necesitas, contacta con el autor: [Oscar Fraile Bermejo](https://www.linkedin.com/in/oscarfrailebermejo/)
+
+Una vez descargado, colócalo en: `02_Datos/01_Originales/`
+
 ## Pipeline
 
 El proyecto sigue un pipeline end-to-end estructurado en notebooks numerados:
