@@ -22,11 +22,9 @@ Python · Pandas · Scikit-learn · XGBoost · Matplotlib · Folium · Jupyter N
 
 ## Base de datos
 
-El archivo `airbnb2025.db` no está incluido en el repositorio por su tamaño (631 MB). Es necesario para ejecutar el proyecto completo.
+El archivo `airbnb2025.db` está disponible en el repositorio en formato comprimido (`airbnb2025.zip`) dentro de `02_Datos/01_Originales/`.
 
-Si lo necesitas, contacta con el autor: [Oscar Fraile Bermejo](https://www.linkedin.com/in/oscarfrailebermejo/)
-
-Una vez descargado, colócalo en: `02_Datos/01_Originales/`
+Para usarlo: descarga el zip, extráelo y deja el archivo `airbnb2025.db` en esa misma carpeta (`02_Datos/01_Originales/`).
 
 ## Pipeline
 
