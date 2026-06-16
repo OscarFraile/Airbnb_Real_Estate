@@ -54,7 +54,7 @@ def load_data():
         "Dic 2024": "airbnb_all_periodos.csv",
     }
     try:
-        df = pd.read_csv("airbnb_all_periodos.csv")
+        df = pd.read_csv("05_Resultados/airbnb_all_periodos.csv")
         if "periodo" not in df.columns:
             df["periodo"] = "Dic 2024"
         return df
