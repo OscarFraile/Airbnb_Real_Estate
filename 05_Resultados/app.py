@@ -24,6 +24,9 @@ p, li, label { color: #AAAAAA; }
 .kpi-val { font-size: 26px; font-weight: 700; color: #FF385C; margin: 0; }
 .kpi-lbl { font-size: 11px; color: #888888; margin: 4px 0 0; text-transform: uppercase; letter-spacing: 0.05em; }
 .section-title { font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+[data-testid="stMultiSelect"] span[data-baseweb="tag"] { background-color: #505050 !important; color: #EEEEEE !important; }
+div[data-baseweb="select"] > div { background-color: #3A3A3A !important; border-color: #505050 !important; }
+[data-testid="stSelectbox"] div[data-baseweb="select"] > div { background-color: #3A3A3A !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -34,7 +37,7 @@ WHITE  = "#EEEEEE"
 COLORS = ["#5B8DB8","#E07B54","#6BBF8E","#C97BB2","#E8C55A","#7EC8C8","#B58A6A","#9B7EC8"]
 
 def get_logo_b64():
-    for p in ["05_Resultados/airbnb_vertical_lockup_web.webp","airbnb_vertical_lockup_web.webp"]:
+    for p in ["99_Media/airbnb_vertical_lockup_web.webp","05_Resultados/airbnb_vertical_lockup_web.webp","airbnb_vertical_lockup_web.webp"]:
         if os.path.exists(p):
             with open(p,"rb") as f:
                 return base64.b64encode(f.read()).decode()
