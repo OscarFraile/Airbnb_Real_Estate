@@ -21,12 +21,15 @@ h1 { color: #EEEEEE; font-size: 2rem !important; }
 h2, h3, h4 { color: #CCCCCC; }
 p, li, label { color: #AAAAAA; }
 .kpi-card { background: #3A3A3A; border-radius: 10px; padding: 16px 18px; text-align: center; border: 1px solid #505050; }
-.kpi-val { font-size: 26px; font-weight: 700; color: #FF385C; margin: 0; }
-.kpi-lbl { font-size: 11px; color: #888888; margin: 4px 0 0; text-transform: uppercase; letter-spacing: 0.05em; }
+.kpi-lbl { font-size: 11px; color: #888888; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em; }
+.kpi-val { font-size: 40px; font-weight: 700; color: #FF385C; margin: 0; line-height: 1.1; }
+details > summary { background: #3A3A3A !important; color: #EEEEEE !important; border: 1px solid #505050 !important; border-radius: 8px; }
+details { border: none !important; }
 .section-title { font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
-[data-testid="stMultiSelect"] span[data-baseweb="tag"] { background-color: #505050 !important; color: #EEEEEE !important; }
 div[data-baseweb="select"] > div { background-color: #3A3A3A !important; border-color: #505050 !important; }
-[data-testid="stSelectbox"] div[data-baseweb="select"] > div { background-color: #3A3A3A !important; }
+ul[data-baseweb="menu"] { background-color: #2B2B2B !important; }
+li[role="option"] { background-color: #2B2B2B !important; color: #EEEEEE !important; }
+li[role="option"]:hover { background-color: #3A3A3A !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -90,7 +93,7 @@ with st.sidebar:
     st.markdown('<p style="font-size:22px;font-weight:700;color:#EEE;margin:8px 0 2px;">Airbnb Madrid</p>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:12px;color:#888;">Análisis de inversión inmobiliaria</p>', unsafe_allow_html=True)
     st.markdown("---")
-    page = st.radio("Navegación",["📊 Mercado","🎯 Criterios","🤖 Modelo","🔍 Buscador"],label_visibility="collapsed")
+    page = st.radio("Navegación",["📊 Mercado","🎯 Criterios","📈 Modelo","🔍 Buscador"],label_visibility="collapsed")
     st.markdown("---")
     st.markdown("**Filtros globales**")
     periodos_sel  = st.multiselect("Periodo",  PERIODOS,  default=PERIODOS)
@@ -109,7 +112,7 @@ def kpi_row(d):
         ("Precio compra mediano",f"{compra:,.0f} €"),("Ocupación mediana",f"{ocup:.0f} %"),
         ("Rentabilidad mediana",f"{rent:.1f} %"),
     ]):
-        col.markdown(f'<div class="kpi-card"><p class="kpi-val">{val}</p><p class="kpi-lbl">{lbl}</p></div>',unsafe_allow_html=True)
+        col.markdown(f'<div class="kpi-card"><p class="kpi-lbl">{lbl}</p><p class="kpi-val">{val}</p></div>',unsafe_allow_html=True)
 
 def sort_p(s): return s.map(PERIODO_ORD).fillna(99)
 
@@ -184,7 +187,7 @@ elif page == "🎯 Criterios":
     fl(fig4); st.plotly_chart(fig4,use_container_width=True)
 
 # ══ MODELO ════════════════════════════════════════════════════════════════════
-elif page == "🤖 Modelo":
+elif page == "📈 Modelo":
     st.markdown("# Modelo predictivo")
     st.markdown("---")
     periodos_kpi = PERIODOS
@@ -192,7 +195,7 @@ elif page == "🤖 Modelo":
         s = df_raw[df_raw["periodo"]==p]
         if len(s)>0:
             pct = (s["rentable_txt"]=="Sí").mean()*100
-            col.markdown(f'<div class="kpi-card"><p class="kpi-val">{pct:.1f} %</p><p class="kpi-lbl">Rentables {p}</p></div>',unsafe_allow_html=True)
+            col.markdown(f'<div class="kpi-card"><p class="kpi-lbl">Rentables {p}</p><p class="kpi-val">{pct:.1f} %</p></div>',unsafe_allow_html=True)
     st.markdown("---")
     c1,c2 = st.columns(2)
     with c1:
@@ -234,16 +237,16 @@ elif page == "🔍 Buscador":
             rentable_fil = st.selectbox("Rentable",["Todos","Sí","No"])
             room_fil = st.selectbox("Tipo alojamiento",["Todos"]+sorted(df["room_type"].dropna().unique().tolist()))
         with c2:
-            precio_max = st.slider("Precio/noche máx. (€)",20,500,300)
-            precio_compra_max = st.slider("Precio compra máx. (€)",50000,800000,400000,step=10000)
+            precio_min, precio_max = st.slider("Precio/noche (€)",20,500,(20,300))
+            precio_compra_min, precio_compra_max = st.slider("Precio compra (€)",50000,800000,(50000,400000),step=10000)
         with c3:
             hab_min,hab_max = st.slider("Nº Habitaciones",0,10,(0,5))
             huesp_min,huesp_max = st.slider("Nº Huéspedes",1,16,(1,8))
         with c4:
-            reviews_min = st.slider("Valoración mínima",0.0,5.0,3.0,step=0.1)
+            reviews_min, reviews_max = st.slider("Valoración",0.0,5.0,(3.0,5.0),step=0.1)
             elevador_fil = st.selectbox("Ascensor",["Todos","Sí","No"])
-    mask = (df["price"]<=precio_max)&(df["bedrooms"].between(hab_min,hab_max))&(df["accommodates"].between(huesp_min,huesp_max))&(df["precio_estimado"]<=precio_compra_max)
-    if "review_scores_rating" in df.columns: mask &= df["review_scores_rating"].fillna(0)>=reviews_min
+    mask = (df["price"].between(precio_min,precio_max))&(df["bedrooms"].between(hab_min,hab_max))&(df["accommodates"].between(huesp_min,huesp_max))&(df["precio_estimado"].between(precio_compra_min,precio_compra_max))
+    if "review_scores_rating" in df.columns: mask &= df["review_scores_rating"].fillna(0).between(reviews_min,reviews_max)
     if rentable_fil!="Todos": mask &= df["rentable_txt"]==rentable_fil
     if room_fil!="Todos": mask &= df["room_type"]==room_fil
     if elevador_fil!="Todos" and "elevator" in df.columns: mask &= df["elevator"]==(1 if elevador_fil=="Sí" else 0)
