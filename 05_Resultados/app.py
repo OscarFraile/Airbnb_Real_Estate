@@ -22,7 +22,7 @@ h2, h3, h4 { color: #CCCCCC; }
 p, li, label { color: #AAAAAA; }
 .kpi-card { background: #3A3A3A; border-radius: 10px; padding: 16px 18px; text-align: center; border: 1px solid #505050; }
 .kpi-lbl { font-size: 11px; color: #888888; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 0.05em; }
-.kpi-val { font-size: 55px !important; font-weight: 700; color: #FF385C; margin: 0; line-height: 1.1; }
+.kpi-val { font-size: 50px !important; font-weight: 700; color: #FF385C; margin: 0; line-height: 1.1; }
 details > summary { background: #3A3A3A !important; color: #EEEEEE !important; border: 1px solid #505050 !important; border-radius: 8px; }
 details { border: none !important; }
 .section-title { font-size: 12px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
