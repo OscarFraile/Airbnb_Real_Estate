@@ -30,7 +30,7 @@ div[data-baseweb="select"] > div { background-color: #3A3A3A !important; border-
 ul[data-baseweb="menu"] { background-color: #2B2B2B !important; }
 li[role="option"] { background-color: #2B2B2B !important; color: #EEEEEE !important; }
 li[role="option"]:hover { background-color: #3A3A3A !important; }
-[data-testid="stRadio"] label { font-size: 24px !important; }
+[data-testid="stRadio"] label p { font-size: 24px !important; }
 </style>
 """, unsafe_allow_html=True)
 
