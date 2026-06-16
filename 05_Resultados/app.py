@@ -17,7 +17,7 @@ st.markdown("""
 [data-testid="stSidebar"] { background: #1E1E1E; }
 [data-testid="stHeader"] { background: transparent; }
 section[data-testid="stSidebar"] { min-width: 280px !important; max-width: 280px !important; }
-h1 { color: #EEEEEE; font-size: 2rem !important; }
+h1 { color: #EEEEEE; font-size: 4rem !important; }
 h2, h3, h4 { color: #CCCCCC; }
 p, li, label { color: #AAAAAA; }
 .kpi-card { background: #3A3A3A; border-radius: 10px; padding: 16px 18px; text-align: center; border: 1px solid #505050; }
