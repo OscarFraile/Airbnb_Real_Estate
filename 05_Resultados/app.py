@@ -31,6 +31,7 @@ ul[data-baseweb="menu"] { background-color: #2B2B2B !important; }
 li[role="option"] { background-color: #2B2B2B !important; color: #EEEEEE !important; }
 li[role="option"]:hover { background-color: #3A3A3A !important; }
 [data-testid="stRadio"] label p { font-size: 24px !important; }
+[data-testid="stSidebar"] img { display: block; margin: 0 auto; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -91,7 +92,7 @@ with st.sidebar:
         st.markdown(f'<img src="data:image/webp;base64,{logo_b64}" style="width:130px;margin-bottom:8px;">', unsafe_allow_html=True)
     else:
         st.markdown('<span style="font-size:32px;">🏠</span>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:22px;font-weight:700;color:#EEE;margin:8px 0 2px;">Airbnb Madrid</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:32px;font-weight:700;color:#EEE;margin:8px 0 2px;text-align:center;">Airbnb Madrid</p>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:12px;color:#888;">Análisis de inversión inmobiliaria</p>', unsafe_allow_html=True)
     st.markdown("---")
     page = st.radio("Navegación",["📊 Mercado","🎯 Criterios","📈 Modelo","🔍 Buscador"],label_visibility="collapsed")
