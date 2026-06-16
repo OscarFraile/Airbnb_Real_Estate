@@ -93,7 +93,7 @@ with st.sidebar:
     else:
         st.markdown('<span style="font-size:32px;">🏠</span>', unsafe_allow_html=True)
     st.markdown('<p style="font-size:32px;font-weight:700;color:#EEE;margin:8px 0 2px;text-align:center;">Airbnb Madrid</p>', unsafe_allow_html=True)
-    st.markdown('<p style="font-size:12px;color:#888;">Análisis de inversión inmobiliaria</p>', unsafe_allow_html=True)
+    st.markdown('<p style="font-size:18px;color:#888;margin:8px 0 2px;text-align:center;">Análisis de inversión inmobiliaria</p>', unsafe_allow_html=True)
     st.markdown("---")
     page = st.radio("Navegación",["📊 Mercado","🎯 Criterios","📈 Modelo","🔍 Buscador"],label_visibility="collapsed")
     st.markdown("---")
