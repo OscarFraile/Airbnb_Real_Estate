@@ -16,7 +16,7 @@ st.markdown("""
 [data-testid="stAppViewContainer"] { background: #2B2B2B; }
 [data-testid="stSidebar"] { background: #1E1E1E; }
 [data-testid="stHeader"] { background: transparent; }
-section[data-testid="stSidebar"] { min-width: 250px !important; max-width: 250px !important; }
+section[data-testid="stSidebar"] { min-width: 240px !important; max-width: 240px !important; }
 h1 { color: #EEEEEE; font-size: 4rem !important; }
 h2, h3, h4 { color: #CCCCCC; }
 p, li, label { color: #AAAAAA; }
@@ -139,7 +139,7 @@ def dual_ax(fig,t1,t2,c1,c2):
 
 # ══ MERCADO ══════════════════════════════════════════════════════════════════
 if page == "📊 Mercado":
-    st.markdown("# Análisis del mercado por distrito")
+    st.markdown("# Análisis por Distrito")
     kpi_row(df)
     st.markdown("---")
     c1,c2 = st.columns(2)
