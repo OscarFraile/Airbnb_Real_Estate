@@ -25,12 +25,12 @@ p, li, label { color: #AAAAAA; }
 .kpi-val { font-size: 40px !important; font-weight: 700; color: #FF385C; margin: 0; line-height: 1.1; }
 details > summary { background: #3A3A3A !important; color: #EEEEEE !important; border: 1px solid #505050 !important; border-radius: 8px; }
 details { border: none !important; }
-.section-title { font-size: 10px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.section-title { font-size: 11px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
 div[data-baseweb="select"] > div { background-color: #3A3A3A !important; border-color: #505050 !important; }
 ul[data-baseweb="menu"] { background-color: #2B2B2B !important; }
 li[role="option"] { background-color: #2B2B2B !important; color: #EEEEEE !important; }
 li[role="option"]:hover { background-color: #3A3A3A !important; }
-[data-testid="stRadio"] label p { font-size: 24px !important; }
+[data-testid="stRadio"] label p { font-size: 20px !important; }
 [data-testid="stSidebar"] img { display: block; margin: 0 auto; }
 </style>
 """, unsafe_allow_html=True)
