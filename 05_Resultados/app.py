@@ -111,7 +111,7 @@ def kpi_row(d):
     rent   = d["rentabilidad_anual_pct"].median() if "rentabilidad_anual_pct" in d.columns else 0
     for col,(lbl,val) in zip(st.columns(5),[
         ("Nº Inmuebles",f"{n:,.0f}"),("Precio mediano/noche",f"{precio:,.0f} €"),
-        ("Precio compra mediano",f"{compra:,.0f} €"),("Ocupación mediana",f"{ocup:.0f} %"),
+        ("Precio compra mediano",f"{compra:,.0f}€"),("Ocupación mediana",f"{ocup:.0f} %"),
         ("Rentabilidad mediana",f"{rent:.1f} %"),
     ]):
         col.markdown(f'<div class="kpi-card"><p class="kpi-lbl">{lbl}</p><p class="kpi-val">{val}</p></div>',unsafe_allow_html=True)
